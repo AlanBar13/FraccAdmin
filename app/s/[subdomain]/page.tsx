@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
-import { getTenant } from "@/lib/tenants"
-import { logout } from "@/lib/userActions"
+import { getTenant } from "@/lib/functions"
+import { logout } from "@/lib/actions/userActions"
 import { notFound } from "next/navigation"
 
 export type SubdomainPageProps = {

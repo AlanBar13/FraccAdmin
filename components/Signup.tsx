@@ -1,5 +1,5 @@
 "use client"
-import { signupWithTenant } from "@/lib/userActions"
+import { signupWithTenant } from "@/lib/actions/userActions"
 import { Button } from "@/components/ui/button"
 import {
     Card,

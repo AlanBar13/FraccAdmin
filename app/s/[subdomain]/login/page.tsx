@@ -1,6 +1,6 @@
 import Login from '@/components/Login';
 import { SubdomainPageProps } from '../page';
-import { getTenant } from '@/lib/tenants';
+import { getTenant } from '@/lib/functions';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }: SubdomainPageProps) {

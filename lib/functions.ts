@@ -10,3 +10,9 @@ export const getTenant = cache(async (subdomain: string) => {
     }
     return tenant;
 })
+
+export const getUserData = cache(async () => {
+    const supabase = await createClient();
+    const { data: user } = await supabase.auth.getUser();
+    return user;
+})

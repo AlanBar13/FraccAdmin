@@ -2,8 +2,18 @@ import { AnnouncementsSection } from "@/components/dashboard/announcements-secti
 import { HousesSection } from "@/components/dashboard/houses-section"
 import { DocumentsSection } from "@/components/dashboard/documents-section"
 import { ContributionsSection } from "@/components/dashboard/contributions-section"
+import { getUserData } from "@/lib/functions"
+import { redirect } from "next/navigation"
 
-export default function AdminSubdomainPage() {
+export default async function AdminSubdomainPage() {
+    const response = await getUserData();
+    const user = response.user;
+    const role = user?.user_metadata?.role;
+
+    if (role === "user") {
+        return redirect("/");
+    }
+
     return (
         <div className="flex flex-col gap-6 p-6">
             <div className="flex flex-col gap-2">
