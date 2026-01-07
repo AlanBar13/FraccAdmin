@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: SubdomainPageProps) {
     const tenant = await getTenant(subdomain)
 
     return {
-        title: tenant ? `${subdomain} | Inicio` : 'Inicio',
-        description: tenant ? `Inicio de ${subdomain}` : 'Inicio',
+        title: tenant ? `${tenant.name} | Inicio` : 'Inicio',
+        description: tenant ? `Inicio de ${tenant.name}` : 'Inicio',
     }
 }
 

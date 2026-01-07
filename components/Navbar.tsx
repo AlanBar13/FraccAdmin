@@ -3,7 +3,10 @@ import { MobileNav } from "./MobileNav"
 import { UserNav } from "./UserNav"
 import { getUserData } from "@/lib/functions"
 
-export async function Navbar() {
+interface Props {
+    fraccName: string | undefined
+}
+export async function Navbar({ fraccName }: Props) {
     const response = await getUserData();
     const user = response.user;
     const role = user?.user_metadata?.role;
@@ -15,7 +18,7 @@ export async function Navbar() {
                 <div className="mr-4 hidden md:flex">
                     <a href="/" className="mr-6 flex items-center space-x-2">
                         <span className="hidden font-bold sm:inline-block">
-                            Fracc
+                            {fraccName ?? "Fracc"}
                         </span>
                     </a>
                     <MainNav role={role} />

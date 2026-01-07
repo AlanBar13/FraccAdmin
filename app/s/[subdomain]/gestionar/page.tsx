@@ -4,6 +4,18 @@ import { DocumentsSection } from "@/components/dashboard/documents-section"
 import { ContributionsSection } from "@/components/dashboard/contributions-section"
 import { getUserData } from "@/lib/functions"
 import { redirect } from "next/navigation"
+import { getTenant } from "@/lib/functions"
+import { SubdomainPageProps } from "../page"
+
+export async function generateMetadata({ params }: SubdomainPageProps) {
+    const { subdomain } = await params
+    const tenant = await getTenant(subdomain)
+
+    return {
+        title: tenant ? `${tenant.name} | Gestionar` : 'Gestionar',
+        description: tenant ? `Gestionar de ${tenant.name}` : 'Gestionar',
+    }
+}
 
 export default async function AdminSubdomainPage() {
     const response = await getUserData();
